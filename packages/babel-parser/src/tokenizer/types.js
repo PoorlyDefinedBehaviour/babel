@@ -84,6 +84,9 @@ function createBinop(name: string, binop: number) {
 }
 
 export const types: { [name: string]: TokenType } = {
+  doBind: new TokenType("<-"),
+  at: new TokenType("@"),
+  atat: new TokenType("@@"),
   num: new TokenType("num", { startsExpr }),
   bigint: new TokenType("bigint", { startsExpr }),
   decimal: new TokenType("decimal", { startsExpr }),

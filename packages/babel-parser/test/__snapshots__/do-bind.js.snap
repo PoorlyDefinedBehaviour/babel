@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`do notation should parse 1`] = `
+Node {
+  "comments": Array [],
+  "end": 24,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 4,
+      "line": 3,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "declarations": Array [
+          Node {
+            "end": 19,
+            "id": Node {
+              "end": 14,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 13,
+                  "line": 2,
+                },
+                "identifierName": "x",
+                "start": Position {
+                  "column": 12,
+                  "line": 2,
+                },
+              },
+              "name": "x",
+              "start": 13,
+              "type": "Identifier",
+            },
+            "init": Node {
+              "end": 19,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 18,
+                  "line": 2,
+                },
+                "identifierName": "y",
+                "start": Position {
+                  "column": 17,
+                  "line": 2,
+                },
+              },
+              "name": "y",
+              "start": 18,
+              "type": "Identifier",
+            },
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 18,
+                "line": 2,
+              },
+              "start": Position {
+                "column": 12,
+                "line": 2,
+              },
+            },
+            "start": 13,
+            "type": "VariableDeclarator",
+          },
+        ],
+        "end": 19,
+        "isDoBind": true,
+        "kind": "const",
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 18,
+            "line": 2,
+          },
+          "start": Position {
+            "column": 6,
+            "line": 2,
+          },
+        },
+        "start": 7,
+        "type": "VariableDeclaration",
+      },
+    ],
+    "directives": Array [],
+    "end": 24,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 4,
+        "line": 3,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;

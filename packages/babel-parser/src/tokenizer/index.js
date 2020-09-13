@@ -715,6 +715,15 @@ export default class Tokenizer extends ParserErrors {
       // The interpretation of a dot depends on whether it is followed
       // by a digit or another two dots.
 
+      case charCodes.atSign:
+        if (this.input.charCodeAt(this.state.pos + 1) === charCodes.atSign) {
+          // create `tt.atat` instead
+          this.finishOp(tt.atat, 2);
+        } else {
+          this.finishOp(tt.at, 1);
+        }
+        return;
+
       case charCodes.dot:
         this.readToken_dot();
         return;
@@ -873,6 +882,10 @@ export default class Tokenizer extends ParserErrors {
         return;
 
       case charCodes.lessThan:
+        if (this.input.charCodeAt(this.state.pos + 1) === charCodes.dash) {
+          this.finishOp(tt.doBind, 2);
+          return;
+        }
       case charCodes.greaterThan:
         this.readToken_lt_gt(code);
         return;

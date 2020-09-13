@@ -1004,7 +1004,14 @@ export default class StatementParser extends ExpressionParser {
     for (;;) {
       const decl = this.startNode();
       this.parseVarId(decl, kind);
+
       if (this.eat(tt.eq)) {
+        decl.init = isFor
+          ? this.parseMaybeAssignDisallowIn()
+          : this.parseMaybeAssignAllowIn();
+      }
+      if (this.eat(tt.doBind)) {
+        node.isDoBind = true;
         decl.init = isFor
           ? this.parseMaybeAssignDisallowIn()
           : this.parseMaybeAssignAllowIn();
@@ -1065,6 +1072,8 @@ export default class StatementParser extends ExpressionParser {
       this.raise(this.state.start, Errors.GeneratorInSingleStatementContext);
     }
     node.generator = this.eat(tt.star);
+
+    node.curry = this.eat(tt.atat);
 
     if (isStatement) {
       node.id = this.parseFunctionId(requireId);

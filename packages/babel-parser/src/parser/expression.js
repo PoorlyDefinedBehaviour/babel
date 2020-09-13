@@ -232,6 +232,7 @@ export default class ExpressionParser extends LValParser {
     afterLeftParse?: Function,
     refNeedsArrowPos?: ?Pos,
   ): N.Expression {
+    console.log("aaaaa", this.state.type);
     const startPos = this.state.start;
     const startLoc = this.state.startLoc;
     if (this.isContextual("yield")) {
@@ -267,6 +268,7 @@ export default class ExpressionParser extends LValParser {
     if (afterLeftParse) {
       left = afterLeftParse.call(this, left, startPos, startLoc);
     }
+
     if (this.state.type.isAssign) {
       const node = this.startNodeAt(startPos, startLoc);
       const operator = this.state.value;
